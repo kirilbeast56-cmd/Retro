@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ФЬОРС ТУ ДАЙ | First to Die — Official</title>
+    <meta name="description" content="ФЬОРС ТУ ДАЙ (First to Die) — агресивний dark metal / industrial гурт.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        /* ===== БАЗОВІ СТИЛІ 90-Х ===== */
+        body {
+            background: #111;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' fill='%23222'/%3E%3Cpath d='M0 0h100v100H0z' fill='none' stroke='%23444' stroke-width='0.5'/%3E%3Ccircle cx='20' cy='20' r='8' fill='%23333'/%3E%3Ccircle cx='80' cy='80' r='10' fill='%23333'/%3E%3C/svg%3E");
+            font-family: 'Courier New', monospace;
+            color: #0f0;
+            margin: 0;
+            padding: 0;
+            cursor: crosshair;
+        }
+        /* Анімований череп */
+        @keyframes skullBlink {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        .skull-gif {
+            display: inline-block;
+            font-size: 24px;
+            animation: skullBlink 0.8s infinite;
+            margin: 0 5px;
+        }
+        /* Основний контейнер */
+        .site-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            border: 3px ridge #666;
+            box-shadow: 0 0 15px #000;
+        }
+        /* Табличний макет */
+        table.main {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td, th {
+            border: 2px solid #444;
+            padding: 5px;
+            vertical-align: top;
+        }
+        /* Хедер */
+        .header {
+            background: #222;
+            text-align: center;
+            padding: 10px;
+            border-bottom: 3px ridge #666;
+        }
+        .logo-text {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 18px;
+            color: #0f0;
+            text-shadow: 2px 2px #f00, -2px -2px #00f;
+            letter-spacing: 3px;
+            margin: 10px 0;
+        }
+        .sub-logo {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #f00;
+            margin: 5px 0;
+        }
+        /* Навігація */
+        .nav {
+            background: #111;
+            text-align: center;
+            padding: 5px;
+            border-bottom: 2px solid #444;
+        }
+        .nav a {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            color: #0f0;
+            text-decoration: none;
+            margin: 0 8px;
+            padding: 3px 6px;
+            border: 1px solid #666;
+            background: #222;
+        }
+        .nav a:hover {
+            background: #f00;
+            color: #000;
+        }
+        /* Головний банер */
+        .hero {
+            background: #000;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 3px ridge #666;
+        }
+        .hero img {
+            border: 5px solid #444;
+            max-width: 90%;
+            filter: grayscale(100%) contrast(150%) brightness(0.7);
+        }
+        .release-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 20px;
+            color: #0f0;
+            text-shadow: 3px 3px #f00;
+            margin: 15px 0;
+        }
+        /* Загальні секції */
+        .section {
+            margin: 15px;
+            padding: 10px;
+            background: #1a1a1a;
+            border: 2px solid #444;
+        }
+        .section-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            color: #f00;
+            text-shadow: 1px 1px #000;
+            margin-bottom: 10px;
+        }
+        /* Мерч */
+        .merch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+        }
+        .merch-card {
+            background: #222;
+            border: 2px solid #666;
+            padding: 8px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .merch-card img {
+            width: 100%;
+            height: auto;
+            filter: grayscale(50%) contrast(120%);
+            border: 1px solid #444;
+        }
+        .btn {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            padding: 4px 8px;
+            background: #333;
+            color: #0f0;
+            border: 2px outset #666;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover { background: #f00; color: #000; }
+        /* Лірика */
+        .lyrics-card {
+            background: #222;
+            border: 2px solid #666;
+            padding: 10px;
+            font-family: 'Special Elite', cursive;
+            font-size: 14px;
+            color: #ccc;
+            white-space: pre-line;
+            box-shadow: 3px 3px 5px #000;
+        }
+        /* Лічильник */
+        .led-counter {
+            background: #000;
+            border: 3px inset #666;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 28px;
+            color: #0f0;
+            text-shadow: 0 0 8px #0f0;
+        }
+        /* Winamp плеєр */
+        .winamp-player {
+            background: #222;
+            border: 2px solid #444;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #0f0;
+        }
+        .winamp-btn {
+            background: #333;
+            border: 2px outset #666;
+            color: #0f0;
+            padding: 3px 8px;
+            cursor: pointer;
+        }
+        /* Лічильник відвідувачів */
+        .hit-counter {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #ccc;
+            text-align: center;
+            margin: 10px 0;
+        }
+        /* Футер */
+        .footer {
+            background: #111;
+            padding: 15px;
+            text-align: center;
+            font-size: 10px;
+            color: #666;
+            border-top: 2px solid #444;
+        }
+        /* Гостьова книга */
+        .guestbook {
+            background: #1a1a1a;
+            border: 2px solid #444;
+            padding: 10px;
+            margin: 15px;
+        }
+        /* Приховуємо стандартний курсор, якщо потрібно */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #0f0;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+    </style>
+</head>
+<body>
+    <div class="site-wrapper">
+        <!-- Хедер -->
+        <div class="header">
+            <div class="logo-text">ФЬОРС ТУ ДАЙ</div>
+            <div class="sub-logo">First to Die</div>
+            <span class="skull-gif">💀</span>
+        </div>
+
+        <!-- Навігація -->
+        <div class="nav">
+            <a href="#home">HOME</a>
+            <a href="#merch">MERCH</a>
+            <a href="#lyrics">LYRICS</a>
+            <a href="#music">MUSIC</a>
+            <a href="#gallery">GALLERY</a>
+            <a href="#guestbook">GUESTBOOK</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+
+        <!-- Головний банер -->
+        <div class="hero" id="home">
+            <img src="https://placehold.co/600x300/111/0f0?text=ФЬОРС+ТУ+ДАЙ" alt="Band Photo">
+            <div class="release-title">NEW RELEASE</div>
+            <p style="color:#0f0;">OUT NOW: "ETERNAL DARKNESS"</p>
+            <a href="#music" class="btn">LISTEN</a>
+        </div>
+
+        <!-- Мерч -->
+        <div class="section" id="merch">
+            <div class="section-title">▌ MERCH ▌</div>
+            <div class="merch-grid" id="merchGrid">
+                <!-- заповнюється JavaScript -->
+            </div>
+        </div>
+
+        <!-- Лірика -->
+        <div class="section" id="lyrics">
+            <div class="section-title">▌ LYRICS ▌</div>
+            <div class="lyrics-card" id="lyricsCard">
+                <!-- заповнюється JavaScript -->
+            </div>
+        </div>
+
+        <!-- Музика -->
+        <div class="section" id="music">
+            <div class="section-title">▌ MUSIC ▌</div>
+            <iframe src="https://open.spotify.com/embed/album/2s2Wum16eimse98P176j2H" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <div class="winamp-player" style="margin-top:10px;">
+                <span>🎵 Winamp Player</span>
+                <button class="winamp-btn" id="playPauseBtn">▶</button>
+                <span id="nowPlaying">Stopped</span>
+            </div>
+        </div>
+
+        <!-- Галерея -->
+        <div class="section" id="gallery">
+            <div class="section-title">▌ GALLERY ▌</div>
+            <div style="display:flex; flex-wrap:wrap; gap:5px;">
+                <img src="https://i.postimg.cc/gJmqn8sx/IMG-0062.jpg" width="100" style="border:2px solid #666; filter: grayscale(70%);">
+                <img src="https://i.postimg.cc/bJpHskgb/IMG-0063.jpg" width="100" style="border:2px solid #666; filter: grayscale(70%);">
+                <img src="https://i.postimg.cc/W3T6hg8J/IMG-0064.jpg" width="100" style="border:2px solid #666; filter: grayscale(70%);">
+            </div>
+        </div>
+
+        <!-- Лічильник -->
+        <div class="section" id="countdown">
+            <div class="section-title">▌ RITUAL COUNTDOWN ▌</div>
+            <div class="led-counter" id="countdownDisplay">28.10.2026</div>
+        </div>
+
+        <!-- Гостьова книга -->
+        <div class="guestbook" id="guestbook">
+            <div class="section-title">▌ GUESTBOOK ▌</div>
+            <form id="guestbookForm">
+                <input type="text" id="guestName" placeholder="Your Name" style="background:#222; color:#0f0; border:2px inset #666; padding:4px; margin:3px;">
+                <textarea id="guestMessage" placeholder="Message" style="background:#222; color:#0f0; border:2px inset #666; width:100%; height:60px;"></textarea>
+                <button type="submit" class="btn">SIGN</button>
+            </form>
+            <div id="guestbookEntries" style="margin-top:10px; font-size:12px; color:#ccc;"></div>
+        </div>
+
+        <!-- Лічильник відвідувачів -->
+        <div class="hit-counter">
+            <span>Visitors: <span id="hitCount">0001</span></span>
+        </div>
+
+        <!-- Футер -->
+        <div class="footer">
+            <p>© 2026 ФЬОРС ТУ ДАЙ / First to Die - all rites reversed</p>
+            <p>BEST VIEWED IN NETSCAPE 4.0 | 800x600</p>
+            <p>Sign the <a href="#guestbook" style="color:#0f0;">Guestbook</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Мерч
+        const merchData = [
+            { title: 'Limited Vinyl', price: '1200 ₴', img: 'https://placehold.co/200x200/222/0f0?text=VINYL' },
+            { title: 'Slam T-Shirt', price: '850 ₴', img: 'https://placehold.co/200x200/222/f00?text=TSHIRT' }
+        ];
+        const merchGrid = document.getElementById('merchGrid');
+        merchData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'merch-card';
+            card.innerHTML = `<img src="${item.img}" alt="${item.title}"><br><b>${item.title}</b><br>${item.price}<br><button class="btn">BUY</button>`;
+            merchGrid.appendChild(card);
+        });
+
+        // Лірика
+        document.getElementById('lyricsCard').innerHTML = `
+            <b>Eternal Winter</b><br>
+            Крижаний вітер ріже плоть...<br>
+            Eternal winter in my heart...
+            <br><br>
+            <b>Crimson Dawn</b><br>
+            Світанок фарбує небеса...<br>
+            Crimson dawn, the end has come...
+        `;
+
+        // Лічильник
+        const concertDate = new Date('2026-10-28T20:00:00').getTime();
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = concertDate - now;
+            if (diff < 0) {
+                document.getElementById('countdownDisplay').textContent = 'RITUAL COMPLETE';
+                return;
+            }
+            const days = Math.floor(diff / (1000*60*60*24));
+            const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+            const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+            const secs = Math.floor((diff % (1000*60)) / 1000);
+            document.getElementById('countdownDisplay').textContent = `${days}d ${hours}h ${mins}m ${secs}s`;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Аудіоплеєр
+        const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3');
+        let playing = false;
+        document.getElementById('playPauseBtn').addEventListener('click', function() {
+            if (playing) {
+                audio.pause();
+                this.textContent = '▶';
+                document.getElementById('nowPlaying').textContent = 'Paused';
+            } else {
+                audio.play();
+                this.textContent = '⏸';
+                document.getElementById('nowPlaying').textContent = 'Crimson Dawn';
+            }
+            playing = !playing;
+        });
+
+        // Гостьова книга
+        const guestbookEntries = JSON.parse(localStorage.getItem('ftd_guestbook')) || [];
+        function renderGuestbook() {
+            const container = document.getElementById('guestbookEntries');
+            container.innerHTML = guestbookEntries.map(e => `<p><b>${e.name}:</b> ${e.msg}</p>`).join('');
+        }
+        document.getElementById('guestbookForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('guestName').value.trim();
+            const msg = document.getElementById('guestMessage').value.trim();
+            if (!name || !msg) return;
+            guestbookEntries.push({ name, msg });
+            localStorage.setItem('ftd_guestbook', JSON.stringify(guestbookEntries));
+            renderGuestbook();
+            this.reset();
+        });
+        renderGuestbook();
+
+        // Лічильник відвідувачів (з localStorage)
+        let count = parseInt(localStorage.getItem('ftd_visits')) || 1;
+        localStorage.setItem('ftd_visits', count + 1);
+        document.getElementById('hitCount').textContent = String(count).padStart(6, '0');
+    </script>
+</body>
+</html>
